@@ -36,5 +36,18 @@ io.on('connection', function (socket) {
             stream.on('data', function (chat) { console.log('emitting chat'); socket.emit('chat', chat.content); });
         }
     });
+
+    socket.on('chat', function (msg, usr) {
+        mongo.connect(process.env.CUSTOMCONNSTR_MONGOLAB_URI, function (err, db) {
+            if (err) {
+                console.warn(err.message);
+            } else {
+                var collection = db.collection('chat messages');
+                collection.insert({ username: usr, content: msg }, function (err, o) {
+                    if (err) { console.warn(err.message); }
+                    else { console.log("chat message from" + usr + "inserted into db: " + msg); }
+                });
+            }
+        });
     
 });
