@@ -31,10 +31,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="public\js\bootstrap.js" />
+    <Compile Include="public\js\bootstrap.min.js" />
     <Compile Include="public\js\index.js" />
     <Compile Include="routes\index.js" />
     <Content Include="package.json" />
-    <Content Include="public\css\Stylus1.styl" />
+    <Content Include="public\css\bootstrap-theme.css" />
+    <Content Include="public\css\bootstrap-theme.css.map" />
+    <Content Include="public\css\bootstrap-theme.min.css" />
+    <Content Include="public\css\bootstrap.css" />
+    <Content Include="public\css\bootstrap.css.map" />
+    <Content Include="public\css\bootstrap.min.css" />
+    <Content Include="public\css\style.css" />
+    <Content Include="public\css\style.styl" />
     <Content Include="README.md" />
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />

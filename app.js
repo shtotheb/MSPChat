@@ -26,5 +26,15 @@ var io = require('socket.io')(serve);
 serve.listen(app.get('port'), function () {});
 
 io.on('connection', function (socket) {
+
+    mongo.connect(process.env.CUSTOMCONNSTR_MONGOLAB_URI, function (err, db) {
+        if (err) {
+            console.warn(err.message);
+        } else {
+            var collection = db.collection('chat messages')
+            var stream = collection.find().sort().limit(10).stream();
+            stream.on('data', function (chat) { console.log('emitting chat'); socket.emit('chat', chat.content); });
+        }
+    });
     
 });
