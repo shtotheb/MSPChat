@@ -26,7 +26,8 @@ var io = require('socket.io')(serve);
 serve.listen(app.get('port'), function () {});
 
 io.on('connection', function (socket) {
-
+    console.log('a user connected');
+    
     mongo.connect(process.env.CUSTOMCONNSTR_MONGOLAB_URI, function (err, db) {
         if (err) {
             console.warn(err.message);
@@ -36,7 +37,11 @@ io.on('connection', function (socket) {
             stream.on('data', function (chat) { console.log('emitting chat'); socket.emit('chat', chat.content); });
         }
     });
-
+    
+    socket.on('disconnect', function () {
+        console.log('user disconnected');
+    });
+    
     socket.on('chat', function (msg, usr) {
         mongo.connect(process.env.CUSTOMCONNSTR_MONGOLAB_URI, function (err, db) {
             if (err) {
@@ -49,5 +54,7 @@ io.on('connection', function (socket) {
                 });
             }
         });
-    
+        
+        socket.broadcast.emit('chat', msg, usr);
+    });
 });
