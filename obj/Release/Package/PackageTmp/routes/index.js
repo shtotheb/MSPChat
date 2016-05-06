@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Node Chatroom' });
+  res.render('index', { title: 'MSP Chat' });
 };
