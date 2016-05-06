@@ -1,0 +1,10 @@
+{
+  "name": "mspchat",
+  "version": "0.0.0",
+  "description": "MSPChat",
+  "main": "server.js",
+  "author": {
+    "name": "ROG550J",
+    "email": ""
+  }
+}
