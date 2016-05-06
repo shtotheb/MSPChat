@@ -5,6 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>MSPChat</Name>
     <RootNamespace>MSPChat</RootNamespace>
+    <NameOfLastUsedPublishProfile>MSPChat</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -35,6 +36,9 @@
     <Compile Include="public\js\bootstrap.min.js" />
     <Compile Include="public\js\index.js" />
     <Compile Include="routes\index.js" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config" />
+    <None Include="MSPChat.pubxml" />
     <Content Include="package.json" />
     <Content Include="public\css\bootstrap-theme.css" />
     <Content Include="public\css\bootstrap-theme.css.map" />
