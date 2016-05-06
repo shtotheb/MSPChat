@@ -31,13 +31,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="public\js\index.js" />
     <Compile Include="routes\index.js" />
     <Content Include="package.json" />
+    <Content Include="public\css\Stylus1.styl" />
     <Content Include="README.md" />
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="public\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\js\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />
   </ItemGroup>
